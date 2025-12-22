@@ -1,1 +1,25 @@
-<p>student-form works!</p>
+<div class="mx-12">
+  <h3 class="mx-7">Create Student</h3>
+  <form (ngSubmit)="upsert();" class="mt-4 mx-9 space-y-4">
+
+    <!-- name -->
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="w-full" id="name" name="name" placeholder="Enter your name" [(ngModel)]="student.name">
+    </div>
+    <!-- average -->
+    <div class="form-group">
+      <label for="average">Average</label>
+      <input type="number" class="w-full" id="average" name="average" placeholder="Enter average"
+        [(ngModel)]="student.average">
+    </div>
+    <!-- out of range Error message  -->
+    <div class="form-group">
+      <label for="outOfRange" class="text-red-900">
+        {{isOutOfRange ? "Average must be a number between 0 and 10" : ""}}
+      </label>
+    </div>
+    <!-- submit button for the form -->
+    <button type="submit">Submit</button>
+  </form>
+</div>
