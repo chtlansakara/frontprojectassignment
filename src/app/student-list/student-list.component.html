@@ -1,0 +1,16 @@
+<table>
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Average</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let student of students">
+      <td>{{student.id}}</td>
+      <td>{{student.name}}</td>
+      <td>{{student.average}}</td>
+    </tr>
+  </tbody>
+</table>
