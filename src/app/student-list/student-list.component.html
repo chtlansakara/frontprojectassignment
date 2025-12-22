@@ -18,6 +18,16 @@
       <td>{{student.id}}</td>
       <td>{{student.name}}</td>
       <td>{{student.average}}</td>
+      <td class="interactivehover">
+        <a href="/students/updateStudent/{{student.id}}">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </td>
+      <td class="interactivehover">
+        <a (click)="deleteStudent(student.id)">
+          <i class="fa fa-trash"></i>
+        </a>
+      </td>
     </tr>
   </tbody>
 </table>

@@ -34,6 +34,6 @@ export class StudentService {
 
   //method to delete a student
   deleteStudent(id:Number):Observable<String>{
-    return this.httpClient.delete<String>(this.link+id);
+    return this.httpClient.delete(this.link+id,{responseType:"text"});
   }
 }

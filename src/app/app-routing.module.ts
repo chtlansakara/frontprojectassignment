@@ -8,6 +8,7 @@ import { AssignmentComponent } from './assignment/assignment.component';
 const routes: Routes = [
   {path:"students", component:StudentListComponent},
   {path:"students/addStudent", component:StudentFormComponent},
+  {path:"students/updateStudent/:id", component: StudentFormComponent},
   {path:"projects", component:ProjectListComponent},
   {path:"assignment", component:AssignmentComponent},
   {path:"",redirectTo:"students", pathMatch:"full"}

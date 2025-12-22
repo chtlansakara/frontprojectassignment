@@ -1,5 +1,5 @@
 <div class="mx-12">
-  <h3 class="mx-7">Create Student</h3>
+  <h3 class="mx-7">{{id?"Update Student": "Create Student"}}</h3>
   <form (ngSubmit)="upsert();" class="mt-4 mx-9 space-y-4">
 
     <!-- name -->
@@ -20,6 +20,6 @@
       </label>
     </div>
     <!-- submit button for the form -->
-    <button type="submit">Submit</button>
+    <button type="submit">{{id? "Update" : "Submit"}}</button>
   </form>
 </div>

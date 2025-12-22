@@ -28,6 +28,14 @@ export class StudentListComponent implements OnInit{
     )
   }
 
+  //method to delete a student
+  deleteStudent(id:any){
+    this.studentService.deleteStudent(id).subscribe(
+      data => {
+        this.getAllStudents();
+      }
+    )
+  }
 
 
 }
