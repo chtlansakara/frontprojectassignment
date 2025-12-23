@@ -18,16 +18,25 @@
       <td>{{student.id}}</td>
       <td>{{student.name}}</td>
       <td>{{student.average}}</td>
+      <!-- link to update student - with edit icon -->
       <td class="interactivehover">
         <a href="/students/updateStudent/{{student.id}}">
           <i class="fa fa-pencil"></i>
         </a>
       </td>
+      <!--link to add projects to the student - with folder icon -->
+      <td class="interactivehover">
+        <a href="/students/{{student.id}}/projects">
+          <i class="fa fa-folder"></i>
+        </a>
+      </td>
+      <!--link to delete student - with trash icon -->
       <td class="interactivehover">
         <a (click)="deleteStudent(student.id)">
           <i class="fa fa-trash"></i>
         </a>
       </td>
+
     </tr>
   </tbody>
 </table>

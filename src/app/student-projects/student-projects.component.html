@@ -1,1 +1,42 @@
-<p>student-projects works!</p>
+<div *ngIf="student.projects.length>0">
+  <h2 class="mb-4">
+    {{student.name}}'s Projects
+
+  </h2>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Id</th>
+        <th>Project Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let project of student.projects">
+        <td>{{project.id}}</td>
+        <td>{{project.name}}</td>
+        <!-- <td class="interactivehover">
+        <a href="/projects/updateProject/{{project.id}}">
+          <i class="fa fa-pencil"></i>
+        </a>
+      </td> -->
+        <td class="interactivehover">
+          <a (click)="deleteProject(project.id)">
+            <i class="fa fa-trash"></i>
+          </a>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<form *ngIf="availableProjectsList.length>0" class="max-w-sm flex flex-col items-center mx-auto"
+  (ngSubmit)="addProject()">
+  <label for="availableProjects">Add a Project</label>
+  <!-- To show available project objects list -->
+  <select name="project" id="project" [(ngModel)]="projectId">
+    <option disabled>Choose a project</option>
+    <option *ngFor="let project of availableProjectsList" [value]="project.id">{{project.name}}</option>
+  </select>
+  <button type="submit">Submit</button>
+</form>
