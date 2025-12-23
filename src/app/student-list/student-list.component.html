@@ -36,7 +36,16 @@
           <i class="fa fa-trash"></i>
         </a>
       </td>
-
     </tr>
   </tbody>
 </table>
+
+<!-- form to update max projects per student value -->
+<form class="space-x-4" (ngSubmit)="updateMaxProjectPerStudent()">
+  <label for="maxProjectPerStudent" class="inline-block">
+    Maximum Projects Per Student is: {{maxProjectsPerStudent}}
+  </label>
+  <input type="number" class="inline-block" min="2" step="1" name="maxProjectPerStudent" [(ngModel)]="tempNumber"
+    placeholder="Add new value">
+  <button type="submit">Submit</button>
+</form>

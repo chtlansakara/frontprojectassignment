@@ -10,12 +10,17 @@ import { StudentService } from '../student.service';
 })
 export class StudentListComponent implements OnInit{
   constructor(private studentService: StudentService){
-
   }
   students: Student[] = [];
+  // property for maximum no of projects
+  maxProjectsPerStudent:any;
+  //property to bind to user's max input
+  tempNumber: any;
 
   ngOnInit(): void {
       this.getAllStudents();
+      // get max projects per student 
+      this.getMaxProjectsPerStudent();
   }
 
 
@@ -37,5 +42,25 @@ export class StudentListComponent implements OnInit{
     )
   }
 
+// -----------------------------------------------------
+//method to get max projects per student number
+getMaxProjectsPerStudent(){
+  this.studentService.getMaxProjectsPerStudent().subscribe(
+    data =>{
+      //assign it to the class property
+      this.maxProjectsPerStudent = data;
+    }
+  )
+}
+
+//method to update max projects per student
+updateMaxProjectPerStudent(){
+  this.studentService.updateMaxProjectsPerStudent(this.tempNumber).subscribe(
+    data =>{
+      //assign the returned updated value to the class property
+      this.maxProjectsPerStudent = data;
+    }
+  )
+}
 
 }

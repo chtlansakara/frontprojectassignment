@@ -66,4 +66,11 @@ updateMaxProjectsPerStudent(max:any): Observable<Number>{
   return this.httpClient.put<Number>(this.link+"max-project",max);
 }
 
+//---------------------------------------------------------
+//method to get assignment of projects to students
+  //returns a hashmap of type <string,string>
+getStudentAssignment():Observable<Map<String,String>>{
+  return this.httpClient.get<Map<String,String>>(this.link+"assignment");
+}
+
 }
