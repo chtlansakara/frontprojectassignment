@@ -3,6 +3,7 @@ import { environment } from '../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Student } from './student';
 import { Observable } from 'rxjs';
+import { Project } from './project';
 
 @Injectable({
   providedIn: 'root'
@@ -36,4 +37,33 @@ export class StudentService {
   deleteStudent(id:Number):Observable<String>{
     return this.httpClient.delete(this.link+id,{responseType:"text"});
   }
+
+//--------------------------------------------------------------------
+//Methods related to student's projects
+
+//method to get available projects for a student
+getAvailableStudentProjects(student_id:any):Observable<Project[]>{
+  return this.httpClient.get<Project[]>(this.link+student_id+"/available-projects");
+}
+
+//method to add project for a student
+addProjectToStudent(student_id:any, project_id:any):Observable<Student>{
+  return this.httpClient.post<Student>(this.link+student_id+"/projects/"+project_id,"");
+}
+
+//method to delete project of a student
+deleteProjectOfStudent(student_id:any, project_id:any):Observable<Student>{
+  return this.httpClient.delete<Student>(this.link+student_id+"/projects/"+project_id);
+}
+
+//method to get max. no of projects allowed per student
+getMaxProjectsPerStudent():Observable<Number>{
+  return this.httpClient.get<Number>(this.link+"max-project");
+}
+
+//method to update max. no of projects allowed per student
+updateMaxProjectsPerStudent(max:any): Observable<Number>{
+  return this.httpClient.put<Number>(this.link+"max-project",max);
+}
+
 }
